@@ -1,6 +1,6 @@
-import {Schema, model} from 'mongoose';
+const {Schema, model} = require('mongoose');
 
-const device = new Schema({
+const DeviceSchema = new Schema({
     image: {
         type: String
     },
@@ -23,7 +23,9 @@ const device = new Schema({
     price: {
         type: String,
         required: true
-    }
+    },
+}, {
+  timestamps: true
 })
 
-module.exports = model('Device', device);
+module.exports = model('Device', DeviceSchema);

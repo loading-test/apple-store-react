@@ -1,7 +1,8 @@
-import express from 'express';
-import config from 'config';
-import chalk from 'chalk';
-import mongoose from 'mongoose';
+const express = require('express');
+const config = require('config');
+const chalk = require('chalk');
+const mongoose = require('mongoose');
+const initDataBase = require('./startInitDB/initDataBase');
 
 const app = express();
 
@@ -18,6 +19,9 @@ const PORT = config.get('port') ?? 8080;
 
 async function startApp() {
   try {
+    mongoose.connection.once('open', () => {
+      initDataBase()
+    })
     await mongoose.connect(config.get('mongoUri'));
     console.log(chalk.bgGreenBright('MongoDB connected OK!'));
     app.listen(PORT, () => {

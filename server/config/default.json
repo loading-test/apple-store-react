@@ -1,4 +1,4 @@
 {
   "port": 8080,
-  "mongoUri": "mongodb+srv://adel:Kazan_198820@cluster-applestore.8mohw.mongodb.net/apple?retryWrites=true&w=majority"
+  "mongoUri": "mongodb+srv://adel:Kazan_198820@cluster-applestore.8mohw.mongodb.net/?retryWrites=true&w=majority"
 }

@@ -1,10 +1,326 @@
 [
   {
-    "_id": "8dc04884eae34233b6590c2a09e3a044",
+    "image": "./img/iphone_13/13-black.png",
+    "_id": "f9d7fcac9f6f4ab78757904c3fa5e252",
     "name": "Apple Iphone",
-    "modele": "13",
+    "model": "13",
+    "memory": "256 ГБ",
+    "color": "Черный",
+    "price": "95 990 ₽"
+  },
+  {
+    "image": "./img/iphone_13/13-blue.png",
+    "_id": "14cb621e43b74cb6bb09a173307b48e7",
+    "name": "Apple Iphone",
+    "model": "13",
+    "memory": "256 ГБ",
+    "color": "Голубой",
+    "price": "95 990 ₽"
+  },
+  {
+    "image": "./img/iphone_13/13-red.jfif",
+    "_id": "5f2036f49ab941a0b91700402794fc11",
+    "name": "Apple Iphone",
+    "model": "13",
+    "memory": "256 ГБ",
+    "color": "Красный",
+    "price": "95 990 ₽"
+  },
+  {
+    "image": "./img/iphone_13/13mini-black.jfif",
+    "_id": "2271272265bd4d7bb6e81ebd9de0c5b2",
+    "name": "Apple Iphone",
+    "model": "13 Mini",
     "memory": "128 ГБ",
     "color": "Черный",
-    "price": "83 990 ₽"
+    "price": "69 990 ₽"
+  },
+  {
+    "image": "./img/iphone_13/13mini-pink.jfif",
+    "_id": "91fede5bcac6470d9d6ec6a1a6865e62",
+    "name": "Apple Iphone",
+    "model": "13 Mini",
+    "memory": "128 ГБ",
+    "color": "Розовый",
+    "price": "69 990 ₽"
+  },
+  {
+    "image": "./img/iphone_13/13mini-white.jfif",
+    "_id": "025a982f9fa1401ba6c2153fff5de16c",
+    "name": "Apple Iphone",
+    "model": "13 Mini",
+    "memory": "128 ГБ",
+    "color": "Белый",
+    "price": "69 990 ₽"
+  },
+  {
+    "image": "./img/iphone_13/13-pro-blue.jfif",
+    "_id": "50d0202dd1f24fdc833994710630bb8d",
+    "name": "Apple Iphone",
+    "model": "13 Pro",
+    "memory": "512 ГБ",
+    "color": "Голубой",
+    "price": "154 990 ₽"
+  },
+  {
+    "image": "./img/iphone_13/13-pro-gold.jfif",
+    "_id": "8dc04884eae34233b6590c2a09e3a044",
+    "name": "Apple Iphone",
+    "model": "13 Pro",
+    "memory": "512 ГБ",
+    "color": "Золотой",
+    "price": "154 990 ₽"
+  },
+  {
+    "image": "./img/iphone_13/13-pro-graphite.jfif",
+    "_id": "5e45a527336448afafd0adc7b039ac60",
+    "name": "Apple Iphone",
+    "model": "13 Pro",
+    "memory": "512 ГБ",
+    "color": "Графитовый",
+    "price": "154 990 ₽"
+  },
+  {
+    "image": "./img/iphone_13/13-promax-white.jfif",
+    "_id": "16c38b6792c34dfe9e10430d3d8de438",
+    "name": "Apple Iphone",
+    "model": "13 ProMax",
+    "memory": "512 ГБ",
+    "color": "Белый",
+    "price": "199 990 ₽"
+  },
+  {
+    "image": "./img/iphone_13/13-promax-gold.jfif",
+    "_id": "b3ba4551755740f8b728151a5b68fe25",
+    "name": "Apple Iphone",
+    "model": "13 ProMax",
+    "memory": "512 ГБ",
+    "color": "Золотой",
+    "price": "199 990 ₽"
+  },
+  {
+    "image": "./img/iphone_13/13-promax-blue.jfif",
+    "_id": "5e322000d5dc4384960cb620e1caaeb4",
+    "name": "Apple Iphone",
+    "model": "13 ProMax",
+    "memory": "512 ГБ",
+    "color": "Голубой",
+    "price": "199 990 ₽"
+  },
+  {
+    "image": "./img/iphone_12/12-blue.png",
+    "_id": "82f4e711b74d442ca7bfcb2f93167711",
+    "name": "Apple Iphone",
+    "model": "12",
+    "memory": "256 ГБ",
+    "color": "Голубой",
+    "price": "79 990 ₽"
+  },
+  {
+    "image": "./img/iphone_12/12-black.png",
+    "_id": "a6917e7ed6fc465b9930bb55f9a13a8f",
+    "name": "Apple Iphone",
+    "model": "12",
+    "memory": "256 ГБ",
+    "color": "Черный",
+    "price": "79 990 ₽"
+  },
+  {
+    "image": "./img/iphone_12/12-green.png",
+    "_id": "740dc4e77756453eafbda852be06c6f2",
+    "name": "Apple Iphone",
+    "model": "12",
+    "memory": "256 ГБ",
+    "color": "Зеленый",
+    "price": "79 990 ₽"
+  },
+  {
+    "image": "./img/iphone_12/12-red.png",
+    "_id": "84a4881e111946aea6864e09bd06efd1",
+    "name": "Apple Iphone",
+    "model": "12",
+    "memory": "256 ГБ",
+    "color": "Красный",
+    "price": "79 990 ₽"
+  },
+  {
+    "image": "./img/iphone_12/12-white.png",
+    "_id": "18cde33a96e9460da2e351b28fb5953f",
+    "name": "Apple Iphone",
+    "model": "12",
+    "memory": "256 ГБ",
+    "color": "Белый",
+    "price": "79 990 ₽"
+  },
+  {
+    "image": "./img/iphone_12/12-purple.png",
+    "_id": "84e0759e448b46aea32ed35991e7cccf",
+    "name": "Apple Iphone",
+    "model": "12",
+    "memory": "256 ГБ",
+    "color": "Фиолетовый",
+    "price": "79 990 ₽"
+  },
+  {
+    "image": "./img/iphone_12/12mini-blue.jfif",
+    "_id": "a837cbf8622540a2aa1f731a4eabf790",
+    "name": "Apple Iphone",
+    "model": "12 Mini",
+    "memory": "64 ГБ",
+    "color": "Голубой",
+    "price": "56 990 ₽"
+  },
+  {
+    "image": "./img/iphone_12/12mini-red.jfif",
+    "_id": "99674aca90b34d70a567420e36108bba",
+    "name": "Apple Iphone",
+    "model": "12 Mini",
+    "memory": "64 ГБ",
+    "color": "Красный",
+    "price": "56 990 ₽"
+  },
+  {
+    "image": "./img/iphone_12/12pro-blue.png",
+    "_id": "0a79a0ffac104e3ab22486635aa4e976",
+    "name": "Apple Iphone",
+    "model": "12 Pro",
+    "memory": "512 ГБ",
+    "color": "Голубой",
+    "price": "119 990 ₽"
+  },
+  {
+    "image": "./img/iphone_12/12pro-gold.png",
+    "_id": "9efd4766846946c59bc10da82cc20dca",
+    "name": "Apple Iphone",
+    "model": "12 Pro",
+    "memory": "512 ГБ",
+    "color": "Золотой",
+    "price": "119 990 ₽"
+  },
+  {
+    "image": "./img/iphone_12/12pro-graphite.png",
+    "_id": "c90657f2268d432185fbfa75f31f6cf9",
+    "name": "Apple Iphone",
+    "model": "12 Pro",
+    "memory": "512 ГБ",
+    "color": "Графитовый",
+    "price": "119 990 ₽"
+  },
+  {
+    "image": "./img/iphone_12/12pro-silver.png",
+    "_id": "984d63adac304037a4b5031e9b3719cb",
+    "name": "Apple Iphone",
+    "model": "12 Pro",
+    "memory": "512 ГБ",
+    "color": "Серебристый",
+    "price": "119 990 ₽"
+  },
+  {
+    "image": "./img/iphone_11/11-black.png",
+    "_id": "8e8492e1c160400aabf06a3fd452dae9",
+    "name": "Apple Iphone",
+    "model": "11",
+    "memory": "128 ГБ",
+    "color": "Черный",
+    "price": "57 990 ₽"
+  },
+  {
+    "image": "./img/iphone_11/11-green.png",
+    "_id": "29a6e37d36054ce9bd7adf4eb64c6c4f",
+    "name": "Apple Iphone",
+    "model": "11",
+    "memory": "128 ГБ",
+    "color": "Зеленый",
+    "price": "57 990 ₽"
+  },
+  {
+    "image": "./img/iphone_11/11-purple.png",
+    "_id": "8ac21b2eeb474e889433ee90b510adf0",
+    "name": "Apple Iphone",
+    "model": "11",
+    "memory": "128 ГБ",
+    "color": "Фиолетовый",
+    "price": "57 990 ₽"
+  },
+  {
+    "image": "./img/iphone_11/11-red.png",
+    "_id": "4c86b658e6d2410190ea51039b4f3409",
+    "name": "Apple Iphone",
+    "model": "11",
+    "memory": "128 ГБ",
+    "color": "Красный",
+    "price": "57 990 ₽"
+  },
+  {
+    "image": "./img/iphone_11/11-white.png",
+    "_id": "f0cb14f9ead84f6a8e781aa3cae2a8e6",
+    "name": "Apple Iphone",
+    "model": "11",
+    "memory": "128 ГБ",
+    "color": "Белый",
+    "price": "57 990 ₽"
+  },
+  {
+    "image": "./img/iphone_11/11-yellow.png",
+    "_id": "bacb4a9366a443a2a52ab37bc3a398be",
+    "name": "Apple Iphone",
+    "model": "11",
+    "memory": "128 ГБ",
+    "color": "Желтый",
+    "price": "57 990 ₽"
+  },
+  {
+    "image": "./img/iphone_xr/xr-yellow.png",
+    "_id": "8b6d2d74ce9e414cbaba3e9987e0ff78",
+    "name": "Apple Iphone",
+    "model": "XR",
+    "memory": "64 ГБ",
+    "color": "Желтый",
+    "price": "39 990 ₽"
+  },
+  {
+    "image": "./img/iphone_xr/xr-white.png",
+    "_id": "22c39f2664b146eeaaaac5cedabdcf93",
+    "name": "Apple Iphone",
+    "model": "XR",
+    "memory": "64 ГБ",
+    "color": "Белый",
+    "price": "39 990 ₽"
+  },
+  {
+    "image": "./img/iphone_xr/xr-red.png",
+    "_id": "c7b2b3f14bfd4e39abbcbfd1b50b1922",
+    "name": "Apple Iphone",
+    "model": "XR",
+    "memory": "64 ГБ",
+    "color": "Красный",
+    "price": "39 990 ₽"
+  },
+  {
+    "image": "./img/iphone_xr/xr-coral.png",
+    "_id": "90ade32675e840a1ac069a6104100b0c",
+    "name": "Apple Iphone",
+    "model": "XR",
+    "memory": "64 ГБ",
+    "color": "Кораловый",
+    "price": "39 990 ₽"
+  },
+  {
+    "image": "./img/iphone_xr/xr-blue.png",
+    "_id": "1b734dbc13aa4078af1984ab9e778783",
+    "name": "Apple Iphone",
+    "model": "XR",
+    "memory": "64 ГБ",
+    "color": "Голубой",
+    "price": "39 990 ₽"
+  },
+  {
+    "image": "./img/iphone_xr/xr-black.png",
+    "_id": "eea3cd3d4d7e4d20b2e9112fab9f282a",
+    "name": "Apple Iphone",
+    "model": "XR",
+    "memory": "64 ГБ",
+    "color": "Черный",
+    "price": "39 990 ₽"
   }
 ]

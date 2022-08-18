@@ -9,7 +9,7 @@ module.exports = async () => {
 };
 
 async function createInitialEntity(Model, data) {
-  // await Model.collection.drop();
+  await Model.collection.drop();
   return Promise.all(
     data.map(async (item) => {
       try {

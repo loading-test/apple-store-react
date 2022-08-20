@@ -18,7 +18,8 @@ const UserSchema = new Schema({
       type: String,
       required: true,
     },
-    avatarUrl: String
+    avatarUrl: String,
+    sex: {type: String, enum: ['мужчина', 'женщина']}
 }, {
   timestamps: true
 })

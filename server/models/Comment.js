@@ -1,10 +1,11 @@
 const {Schema, model} = require('mongoose');
 
 const CommentSchema = new Schema({
-    firstName: {
-        type: String,
-        required: true
-    },
+    content: {type: String, required: true},
+    // На чьей странице находится комментарий
+    pageId: {type: Schema.Types.ObjectId, ref: 'Device', required: true} ,
+    // Кто оставил коммент
+    userId: {type: Shema.Types.ObjectId, ref: 'User', required: true}
 }, {
   timestamps: true
 })

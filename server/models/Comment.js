@@ -7,7 +7,7 @@ const CommentSchema = new Schema({
     // Кто оставил коммент
     userId: {type: Shema.Types.ObjectId, ref: 'User', required: true}
 }, {
-  timestamps: true
+  timestamps: {createdAt: 'created_at'}
 })
 
 module.exports = model('Comment', CommentSchema);

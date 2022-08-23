@@ -3,11 +3,14 @@ const config = require('config');
 const chalk = require('chalk');
 const mongoose = require('mongoose');
 const initDataBase = require('./startInitDB/initDataBase');
+const routes = require('./routes/index')
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+
+app.use('/api/', routes)
 
 const PORT = config.get('port') ?? 8080;
 

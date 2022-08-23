@@ -1,4 +1,6 @@
 {
   "port": 8080,
-  "mongoUri": "mongodb+srv://adel:Kazan_198820@cluster-applestore.8mohw.mongodb.net/apple-store?retryWrites=true&w=majority"
+  "mongoUri": "mongodb+srv://adel:Kazan_198820@cluster-applestore.8mohw.mongodb.net/apple-store?retryWrites=true&w=majority",
+  "accessSecret": "secret backend",
+  "refreshSecret": "refresh key"
 }

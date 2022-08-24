@@ -3,11 +3,11 @@ const {Schema, model} = require('mongoose');
 const UserSchema = new Schema({
     firstName: {
         type: String,
-        // required: true
+        required: true
     },
     lastName: {
       type: String,
-      // required: true
+      required: true
     },
     email: {
       type: String,
@@ -19,7 +19,7 @@ const UserSchema = new Schema({
       required: true,
     },
     avatarUrl: String,
-    sex: {type: String, enum: ['мужчина', 'женщина']}
+    sex: String
 }, {
   timestamps: true
 })

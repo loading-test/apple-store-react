@@ -1,41 +1,42 @@
-const express = require('express');
-const User = require('../models/User');
-const bcrypt = require('bcrypt');
-const tokenServece = require('../services/token.service');
+const {registerValidation} = require("../validations");
+const express = require("express");
+const { validationResult } = require("express-validator");
+const bcrypt = require("bcrypt")
+const UserModel = require("../models/User")
 
 const router = express.Router({ mergeParams: true });
 
-router.post('/register', async (req, res) => {
+router.post("/register", registerValidation, async (req, res) => {
   try {
-    const { email, password } = req.body;
-    const exitingUser = await User.findOne({ email });
+    const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json(errors.array());
+  }
 
-    if (exitingUser) {
-      return res.status(400).json({
-        error: {
-          message: 'EMAIL_EXISTS',
-          code: 400,
-        },
-      });
-    }
+  const password = req.body.password
+  const salt = await bcrypt.genSalt(10)
+  const passwordHash = await bcrypt.hash(password, salt)
 
-    const hashedPassword = await bcrypt.hash(password, 12);
+  const doc = new UserModel({
+    email: req.body.email,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    avatarUrl: req.body.avatarUrl,
+    sex: req.body.sex,
+    password: passwordHash
+  })
 
-    const newUser = await User.create({
-      ...req.body,
-      password: hashedPassword,
-    });
+  const user = await doc.save()
 
-    const tokens = tokenServece.generate({ _id: newUser._id });
-    await tokenServece.save(newUser._id, tokens.refreshToken);
-    res.status(201).send({ ...tokens, userId: newUser._id });
+  res.json(user);
   } catch (error) {
     res.status(500).json({
-      message: 'На сервере произола ошибка. Попробуйте позже',
-    });
+      message: 'На сервере произошла ошибка. Повторите позже...'
+    })
   }
+  
 });
-router.post('/login', async (req, res) => {});
-router.post('/token', async (req, res) => {});
+router.post("/login", async (req, res) => {});
+router.post("/token", async (req, res) => {});
 
 module.exports = router;

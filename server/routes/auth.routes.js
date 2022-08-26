@@ -3,6 +3,7 @@ const express = require("express");
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcrypt")
 const UserModel = require("../models/User")
+const jwt = require('jsonwebtoken')
 
 const router = express.Router({ mergeParams: true });
 
@@ -15,7 +16,7 @@ router.post("/register", registerValidation, async (req, res) => {
 
   const password = req.body.password
   const salt = await bcrypt.genSalt(10)
-  const passwordHash = await bcrypt.hash(password, salt)
+  const hash = await bcrypt.hash(password, salt)
 
   const doc = new UserModel({
     email: req.body.email,
@@ -23,12 +24,27 @@ router.post("/register", registerValidation, async (req, res) => {
     lastName: req.body.lastName,
     avatarUrl: req.body.avatarUrl,
     sex: req.body.sex,
-    password: passwordHash
+    passwordHash: hash
   })
 
   const user = await doc.save()
 
-  res.json(user);
+  const token = jwt.sign(
+    {
+      _id: user._id,
+    },
+    'secret123',
+    {
+      expiresIn: '30d'
+    }
+  )
+
+  const {passwordHash, ...userData} = user._doc
+
+  res.json({
+    ...userData,
+    token
+  });
   } catch (error) {
     res.status(500).json({
       message: 'На сервере произошла ошибка. Повторите позже...'
@@ -36,7 +52,46 @@ router.post("/register", registerValidation, async (req, res) => {
   }
   
 });
-router.post("/login", async (req, res) => {});
+router.post("/login", async (req, res) => {
+  try {
+    const user = await UserModel.findOne({email: req.body.email})
+
+    if(!user) {
+      return req.status(404).json({
+        message: 'Пользователь не найден'
+      })
+    }
+
+    const isValidPass = await bcrypt.compare(req.body.password, user._doc.passwordHash)
+
+    if(!isValidPass) {
+      return res.status(403).json({
+        message: 'Неверный логин или пароль'
+      })
+    }
+
+    const token = jwt.sign(
+      {
+        _id: user._id,
+      },
+      'secret123',
+      {
+        expiresIn: '30d'
+      }
+    )
+
+    const {passwordHash, ...userData} = user._doc
+
+    res.json({
+      ...userData,
+      token
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: 'Не удалось авторизоваться'
+    })
+  }
+});
 router.post("/token", async (req, res) => {});
 
 module.exports = router;

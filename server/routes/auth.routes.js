@@ -1,73 +1,74 @@
-const {registerValidation} = require("../validations");
-const express = require("express");
-const { validationResult } = require("express-validator");
-const bcrypt = require("bcrypt")
-const UserModel = require("../models/User")
-const jwt = require('jsonwebtoken')
+const { registerValidation } = require('../validations');
+const express = require('express');
+const { validationResult } = require('express-validator');
+const bcrypt = require('bcrypt');
+const UserModel = require('../models/User');
+const jwt = require('jsonwebtoken');
+const checkAuth = require('../utils/checkAuth');
 
 const router = express.Router({ mergeParams: true });
 
-router.post("/register", registerValidation, async (req, res) => {
+router.post('/register', registerValidation, async (req, res) => {
   try {
     const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json(errors.array());
-  }
-
-  const password = req.body.password
-  const salt = await bcrypt.genSalt(10)
-  const hash = await bcrypt.hash(password, salt)
-
-  const doc = new UserModel({
-    email: req.body.email,
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    avatarUrl: req.body.avatarUrl,
-    sex: req.body.sex,
-    passwordHash: hash
-  })
-
-  const user = await doc.save()
-
-  const token = jwt.sign(
-    {
-      _id: user._id,
-    },
-    'secret123',
-    {
-      expiresIn: '30d'
+    if (!errors.isEmpty()) {
+      return res.status(400).json(errors.array());
     }
-  )
 
-  const {passwordHash, ...userData} = user._doc
+    const password = req.body.password;
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(password, salt);
 
-  res.json({
-    ...userData,
-    token
-  });
+    const doc = new UserModel({
+      email: req.body.email,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      avatarUrl: req.body.avatarUrl,
+      sex: req.body.sex,
+      password: hash,
+    });
+
+    const user = await doc.save();
+
+    const token = jwt.sign(
+      {
+        _id: user._id,
+      },
+      'secret123',
+      {
+        expiresIn: '30d',
+      },
+    );
+
+    const { passwordHash, ...userData } = user._doc;
+
+    res.json({
+      ...userData,
+      token,
+    });
   } catch (error) {
     res.status(500).json({
-      message: 'На сервере произошла ошибка. Повторите позже...'
-    })
+      message: 'Не удалось зарегестрироваться',
+    });
   }
-  
 });
-router.post("/login", async (req, res) => {
-  try {
-    const user = await UserModel.findOne({email: req.body.email})
 
-    if(!user) {
+router.post('/login', async (req, res) => {
+  try {
+    const user = await UserModel.findOne({ email: req.body.email });
+
+    if (!user) {
       return req.status(404).json({
-        message: 'Пользователь не найден'
-      })
+        message: 'Пользователь не найден',
+      });
     }
 
-    const isValidPass = await bcrypt.compare(req.body.password, user._doc.passwordHash)
+    const isValidPass = await bcrypt.compare(req.body.password, user._doc.password);
 
-    if(!isValidPass) {
+    if (!isValidPass) {
       return res.status(403).json({
-        message: 'Неверный логин или пароль'
-      })
+        message: 'Неверный логин или пароль',
+      });
     }
 
     const token = jwt.sign(
@@ -76,22 +77,41 @@ router.post("/login", async (req, res) => {
       },
       'secret123',
       {
-        expiresIn: '30d'
-      }
-    )
+        expiresIn: '30d',
+      },
+    );
 
-    const {passwordHash, ...userData} = user._doc
+    const { passwordHash, ...userData } = user._doc;
 
     res.json({
       ...userData,
-      token
+      token,
     });
   } catch (error) {
     res.status(500).json({
-      message: 'Не удалось авторизоваться'
-    })
+      message: 'Не удалось авторизоваться',
+    });
   }
 });
-router.post("/token", async (req, res) => {});
+
+router.get('/me', checkAuth, async (req, res) => {
+  try {
+    const user = await UserModel.findById(req.userId);
+
+    if (!user) {
+      return res.status(404).json({
+        message: 'Пользователь не найден',
+      });
+    }
+
+    const { passwordHash, ...userData } = user._doc;
+
+    res.json(userData);
+  } catch (error) {
+    res.status(500).json({
+      message: 'нет доступа',
+    });
+  }
+});
 
 module.exports = router;

@@ -8,3 +8,8 @@ exports.registerValidation = [
     body('avatarUrl', 'Неверная ссылка на аватарку').optional().isURL(),
     body('sex', 'Выберите пол').notEmpty(),
 ]
+
+exports.loginValidation = [
+  body('email', 'Неверный формат почты').isEmail(),
+  body('passwprd', 'Пароль должен быть минимум 6 символов').isLength({min: 6})
+]

@@ -1,4 +1,4 @@
-const { registerValidation } = require('../validations');
+const { registerValidation, loginValidation } = require('../validations');
 const express = require('express');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
@@ -53,7 +53,7 @@ router.post('/register', registerValidation, async (req, res) => {
   }
 });
 
-router.post('/login', async (req, res) => {
+router.post('/login', loginValidation, async (req, res) => {
   try {
     const user = await UserModel.findOne({ email: req.body.email });
 

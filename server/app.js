@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path')
 const config = require('config');
 const cors = require('cors');
 const chalk = require('chalk');
@@ -8,9 +9,11 @@ const routes = require('./routes/index');
 
 const app = express();
 
+app.use(express.static(path.join(__dirname,'mock')));
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
+
 
 app.use('/api', routes);
 

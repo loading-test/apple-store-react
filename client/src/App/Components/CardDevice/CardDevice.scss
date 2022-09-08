@@ -1,0 +1,63 @@
+.cardDevice-Main {
+    display: grid;
+    justify-content: center;
+
+    .gridContainer {
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr);
+        margin-top: 20vh !important;
+
+        .gridItem {
+            margin: 10px;
+
+            .cardBlock {
+                display: grid;
+                justify-content: center;
+                align-items: center;
+                justify-items: center;
+                align-content: center;
+                width: 200px;
+                height: auto;
+
+                .cardAction {
+                    display: flex !important;
+                    flex-direction: column;
+                    align-content: center;
+
+                    .cardImage {
+                        width: auto !important;
+                    }
+
+                    .cardContent {
+                        width: 95%;
+
+                        .typograph {
+                            font-size: 17px !important;
+                            font-weight: 600 !important;
+                        }
+
+                        .infoBlock {
+                            display: flex;
+                            justify-content: space-between;
+                            flex-direction: row;
+                        }
+
+                        .price {
+                            margin-top: 10px;
+                            display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+                        }
+                    }
+                }
+
+                .cartActions {
+                    svg {
+                        margin-right: 5px;
+                    }
+
+                }
+            }
+        }
+    }
+}

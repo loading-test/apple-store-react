@@ -1,12 +1,11 @@
-import React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import { Button } from '@mui/material';
-import './header.scss';
-import { Link } from 'react-router-dom';
-import { Container } from '@mui/system';
-import BasicModal from '../common/Modal';
+import React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import { Link } from "react-router-dom";
+import { Container } from "@mui/system";
+import BasicModal from "../common/Modal";
+import "./header.scss";
 
 const Header = () => {
   return (
@@ -14,7 +13,10 @@ const Header = () => {
       <AppBar position="static" className="header__appbar">
         <Container maxWidth="xl">
           <Toolbar className="header__appbar__toolbar">
-            <img src="apple.svg" alt="apple.svg" />
+            <Link to="/">
+              <img src="apple.svg" alt="apple.svg" />
+            </Link>
+
             <div className="header__appbar__toolbar__link">
               <Link to="/iphonexr">Iphone XR</Link>
               <Link to="/iphone11">Iphone 11</Link>

@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import { Link } from "react-router-dom";
 import { Container } from "@mui/system";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import BasicModal from "../common/Modal";
 import "./header.scss";
 
@@ -23,7 +24,13 @@ const Header = () => {
               <Link to="/iphone12">Iphone 12</Link>
               <Link to="/iphone13">Iphone 13</Link>
             </div>
-            <BasicModal />
+            <div className="header__appbar__toolbar__layout">
+              <Link to="/cart">
+              <ShoppingCartIcon />
+              </Link>
+             
+              <BasicModal />
+            </div>
           </Toolbar>
         </Container>
       </AppBar>

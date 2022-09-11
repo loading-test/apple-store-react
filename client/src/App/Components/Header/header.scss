@@ -1,8 +1,7 @@
 .header__appbar {
   background-color: black!important;
-}
 
-.header__appbar__toolbar {
+  &__toolbar {
     justify-content: space-between;
     flex-direction: row;
     align-content: center;
@@ -31,4 +30,23 @@
       }
     }
   }
+
+  &__layout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      padding-right: 15px;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
 }
+}
+
+

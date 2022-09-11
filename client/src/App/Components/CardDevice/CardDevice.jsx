@@ -7,8 +7,10 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions, Grid } from "@mui/material";
 import { useEffect } from "react";
 import { fetchDevice } from "../../Redux/slice/devices";
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import "./CardDevice.scss";
+import Sort from "../Sort/Sort";
+import SearchBlock from "../Search/Search";
 
 const CardDevice = () => {
   const dispatch = useDispatch();
@@ -22,6 +24,10 @@ const CardDevice = () => {
 
   return (
     <div className="cardDevice-Main">
+      <div className="filterBlock">
+        <SearchBlock />
+        <Sort />
+      </div>
       <Grid container spacing={1} className="gridContainer">
         {devices.items.map((item) => {
           return (
@@ -52,15 +58,18 @@ const CardDevice = () => {
                         {item.memory}
                       </Typography>
                     </div>
-                    <Typography variant="h6" color="text.info" className="price">
+                    <Typography
+                      variant="h6"
+                      color="text.info"
+                      className="price"
+                    >
                       {item.price}
                     </Typography>
                   </CardContent>
                 </CardActionArea>
                 <CardActions className="cartActions">
                   <Button size="small" color="primary">
-                  <AddShoppingCartIcon />
-                    В корзину
+                    <AddShoppingCartIcon />В корзину
                   </Button>
                 </CardActions>
               </Card>

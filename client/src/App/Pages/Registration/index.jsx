@@ -109,13 +109,6 @@ const Registration = () => {
             <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
               Зарегистрироваться
             </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link href="#" variant="body2">
-                  У вас уже есть аккаунт? Войти
-                </Link>
-              </Grid>
-            </Grid>
           </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />

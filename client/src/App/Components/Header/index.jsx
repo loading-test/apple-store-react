@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { Container } from '@mui/system';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import BasicModal from '../common/Modal';
-import './header.scss';
+import './Header.scss';
 
 const Header = () => {
   return (

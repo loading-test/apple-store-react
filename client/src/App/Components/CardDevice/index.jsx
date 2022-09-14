@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import { fetchDevice } from '../../Redux/slice/device';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import './CardDevice.scss';
-import Sort from '../Sort/Sort';
+import Sort from '../Sort';
 import Search from '../Search/Search';
 
 const CardDevice = () => {

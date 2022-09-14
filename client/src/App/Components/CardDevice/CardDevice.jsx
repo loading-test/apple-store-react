@@ -1,16 +1,16 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions, Grid } from "@mui/material";
-import { useEffect } from "react";
-import { fetchDevice } from "../../Redux/slice/devices";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import "./CardDevice.scss";
-import Sort from "../Sort/Sort";
-import SearchBlock from "../Search/Search";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { Button, CardActionArea, CardActions, Grid } from '@mui/material';
+import { useEffect } from 'react';
+import { fetchDevice } from '../../Redux/slice/device';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import './CardDevice.scss';
+import Sort from '../Sort/Sort';
+import Search from '../Search/Search';
 
 const CardDevice = () => {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const CardDevice = () => {
   return (
     <div className="cardDevice-Main">
       <div className="filterBlock">
-        <SearchBlock />
+        <Search />
         <Sort />
       </div>
       <Grid container spacing={1} className="gridContainer">
@@ -43,11 +43,7 @@ const CardDevice = () => {
                     className="cardImage"
                   />
                   <CardContent className="cardContent">
-                    <Typography
-                      gutterBottom
-                      className="typograph"
-                      component="div"
-                    >
+                    <Typography gutterBottom className="typograph" component="div">
                       {item.name} {item.model}
                     </Typography>
                     <div className="infoBlock">
@@ -58,11 +54,7 @@ const CardDevice = () => {
                         {item.memory}
                       </Typography>
                     </div>
-                    <Typography
-                      variant="h6"
-                      color="text.info"
-                      className="price"
-                    >
+                    <Typography variant="h6" color="text.info" className="price">
                       {item.price}
                     </Typography>
                   </CardContent>

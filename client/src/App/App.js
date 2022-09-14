@@ -2,7 +2,9 @@ import './App.css';
 import Container from '@mui/material/Container';
 import Header from './Components/Header/Header';
 import { Route, Routes } from 'react-router-dom';
-import Home from './Components/Home/Home';
+import Home from './Pages/Home/Home';
+import Cart from './Pages/Cart/Cart';
+import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
 
@@ -12,6 +14,8 @@ function App() {
       <Container maxWidth='xl'>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </Container>
       </>

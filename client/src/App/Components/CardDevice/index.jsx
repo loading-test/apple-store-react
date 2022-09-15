@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -15,21 +15,25 @@ import Search from '../Search/Search';
 const CardDevice = () => {
   const dispatch = useDispatch();
   const { devices } = useSelector((state) => state.devices);
-
-  console.log(devices);
+  const [value, setValue] = useState('');
 
   useEffect(() => {
     dispatch(fetchDevice());
   }, []);
 
+  const device = devices.items
+
   return (
     <div className="cardDevice-Main">
       <div className="filterBlock">
-        <Search />
+        <Search value={value} setValue={setValue} />
         <Sort />
       </div>
       <Grid container spacing={1} className="gridContainer">
-        {devices.items.map((item) => {
+        {device.filter((obj) => {
+          const search = (obj.name + ' ' + obj.model).toLowerCase()
+          return search.includes(value.toLowerCase())
+        }).map((item) => {
           return (
             <Grid key={item._id} className="gridItem">
               <Card sx={{ maxWidth: 400 }} className="cardBlock">

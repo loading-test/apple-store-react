@@ -4,9 +4,9 @@ import { setSearchValue } from '../../Redux/slice/filter';
 import debounce from 'lodash.debounce';
 import styles from './Search.module.scss';
 
-const Search = () => {
+const Search = ({value, setValue}) => {
   const dispatch = useDispatch();
-  const [value, setValue] = useState('');
+  
   const inputRef = useRef(null);
 
   const onClickClear = () => {

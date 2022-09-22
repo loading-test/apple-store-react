@@ -1,8 +1,12 @@
 .sortBlock {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    span {
-        padding-left: 8px;
-    }
+  svg {
+    cursor: pointer;
+  }
+
+  span {
+    padding-left: 8px;
+  }
 }

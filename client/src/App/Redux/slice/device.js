@@ -3,7 +3,7 @@ import axios from '../../axios';
 
 export const fetchDevice = createAsyncThunk('/devices/fetchDevice', async () => {
   const { data } = await axios.get('/devices');
-  console.log(data);
+
   return data;
 });
 

@@ -1,11 +1,11 @@
-import React from "react";
-import SortIcon from "@mui/icons-material/Sort";
-import "./Sort.scss";
+import React from 'react';
+import SortIcon from '@mui/icons-material/Sort';
+import './Sort.scss';
 
-const Sort = () => {
+const Sort = ({ sortBy }) => {
   return (
     <div className="sortBlock">
-      <SortIcon /> <span>сортировка по цене</span>
+      <SortIcon onClick={() => console.log(sortBy)} /> <span>сортировка по цене</span>
     </div>
   );
 };

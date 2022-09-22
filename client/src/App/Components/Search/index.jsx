@@ -4,14 +4,14 @@ import { setSearchValue } from '../../Redux/slice/filter';
 import debounce from 'lodash.debounce';
 import styles from './Search.module.scss';
 
-const Search = ({value, setValue}) => {
+const Search = ({ value, setValue }) => {
   const dispatch = useDispatch();
-  
+
   const inputRef = useRef(null);
 
   const onClickClear = () => {
     dispatch(setSearchValue(''));
-    setSearchValue('');
+    // setSearchValue('');
     setValue('');
     inputRef.current?.focus();
   };

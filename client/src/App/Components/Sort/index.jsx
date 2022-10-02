@@ -2,10 +2,10 @@ import React from 'react';
 import SortIcon from '@mui/icons-material/Sort';
 import './Sort.scss';
 
-const Sort = ({ sortBy }) => {
+const Sort = () => {
   return (
     <div className="sortBlock">
-      <SortIcon onClick={() => console.log(sortBy)} /> <span>сортировка по цене</span>
+      <SortIcon /> <span>сортировка по цене</span>
     </div>
   );
 };

@@ -1,18 +1,18 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from '../../axios';
 
-export const fetchDevice = createAsyncThunk('/devices/fetchDevice', async () => {
-  const { data } = await axios.get('/devices');
-
-  return data;
-});
-
 const initialState = {
   devices: {
     items: [],
     status: 'loading',
   },
 };
+
+export const fetchDevice = createAsyncThunk('/devices/fetchDevice', async () => {
+  const { data } = await axios.get('/devices');
+
+  return data;
+});
 
 const deviceSlice = createSlice({
   name: 'devices',

@@ -20,8 +20,13 @@ const DeviceSchema = new Schema({
         type: String,
         required: true
     },
+    currency: {
+      type: String,
+      required: true
+    },
+    category: String,
     price: {
-        type: String,
+        type: Number,
         required: true
     },
 }, {

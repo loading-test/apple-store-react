@@ -6,7 +6,9 @@
     "model": "13",
     "memory": "256 ГБ",
     "color": "Черный",
-    "price": "95 990 ₽"
+    "currency": "₽",
+    "category": "13",
+    "price": 95990
   },
   {
     "image": "./img/iphone_13/iphone-13-blue.jpg",
@@ -15,7 +17,9 @@
     "model": "13",
     "memory": "256 ГБ",
     "color": "Голубой",
-    "price": "95 990 ₽"
+    "currency": "₽",
+    "category": "13",
+    "price": 95990
   },
   {
     "image": "./img/iphone_13/iphone-13-red.jpg",
@@ -24,7 +28,9 @@
     "model": "13",
     "memory": "256 ГБ",
     "color": "Красный",
-    "price": "95 990 ₽"
+    "currency": "₽",
+    "category": "13",
+    "price": 95990
   },
   {
     "image": "./img/iphone_13/iphone-13-mini-black.jpg",
@@ -33,7 +39,9 @@
     "model": "13 Mini",
     "memory": "128 ГБ",
     "color": "Черный",
-    "price": "69 990 ₽"
+    "currency": "₽",
+    "category": "13 Mini",
+    "price": 69990
   },
   {
     "image": "./img/iphone_13/iphone-13-mini-pink.jpg",
@@ -42,7 +50,9 @@
     "model": "13 Mini",
     "memory": "128 ГБ",
     "color": "Розовый",
-    "price": "69 990 ₽"
+    "currency": "₽",
+    "category": "13 Mini",
+    "price": 69990
   },
   {
     "image": "./img/iphone_13/iphone-13-mini-white.jpg",
@@ -51,7 +61,9 @@
     "model": "13 Mini",
     "memory": "128 ГБ",
     "color": "Белый",
-    "price": "69 990 ₽"
+    "currency": "₽",
+    "category": "13 Mini",
+    "price": 69990
   },
   {
     "image": "./img/iphone_13/iphone-13-pro-blue.jpg",
@@ -60,7 +72,9 @@
     "model": "13 Pro",
     "memory": "512 ГБ",
     "color": "Голубой",
-    "price": "154 990 ₽"
+    "currency": "₽",
+    "category": "13 Pro",
+    "price": 154990
   },
   {
     "image": "./img/iphone_13/iphone-13-pro-gold.jpg",
@@ -69,7 +83,9 @@
     "model": "13 Pro",
     "memory": "512 ГБ",
     "color": "Золотой",
-    "price": "154 990 ₽"
+    "currency": "₽",
+    "category": "13 Pro",
+    "price": 154990
   },
   {
     "image": "./img/iphone_13/iphone-13-pro-graphite.jpg",
@@ -78,7 +94,9 @@
     "model": "13 Pro",
     "memory": "512 ГБ",
     "color": "Графитовый",
-    "price": "154 990 ₽"
+    "currency": "₽",
+    "category": "13 Pro",
+    "price": 154990
   },
   {
     "image": "./img/iphone_13/iphone-13-promax-gold.jpg",
@@ -87,7 +105,9 @@
     "model": "13 ProMax",
     "memory": "512 ГБ",
     "color": "Золотой",
-    "price": "199 990 ₽"
+    "currency": "₽",
+    "category": "13 ProMax",
+    "price": 199990
   },
   {
     "image": "./img/iphone_13/iphone-13-promax-blue.jpg",
@@ -96,7 +116,9 @@
     "model": "13 ProMax",
     "memory": "512 ГБ",
     "color": "Голубой",
-    "price": "199 990 ₽"
+    "currency": "₽",
+    "category": "13 ProMax",
+    "price": 199990
   },
   {
     "image": "./img/iphone_12/iphone-12-blue.jpg",
@@ -105,7 +127,9 @@
     "model": "12",
     "memory": "256 ГБ",
     "color": "Голубой",
-    "price": "79 990 ₽"
+    "currency": "₽",
+    "category": "12",
+    "price": 79990
   },
   {
     "image": "./img/iphone_12/iphone-12-black.jpg",
@@ -114,7 +138,9 @@
     "model": "12",
     "memory": "256 ГБ",
     "color": "Черный",
-    "price": "79 990 ₽"
+    "currency": "₽",
+    "category": "12",
+    "price": 79990
   },
   {
     "image": "./img/iphone_12/iphone-12-red.jpeg",
@@ -123,7 +149,9 @@
     "model": "12",
     "memory": "256 ГБ",
     "color": "Красный",
-    "price": "79 990 ₽"
+    "currency": "₽",
+    "category": "12",
+    "price": 79990
   },
   {
     "image": "./img/iphone_12/iphone-12-white.jpeg",
@@ -132,7 +160,9 @@
     "model": "12",
     "memory": "256 ГБ",
     "color": "Белый",
-    "price": "79 990 ₽"
+    "currency": "₽",
+    "category": "12",
+    "price": 79990
   },
   {
     "image": "./img/iphone_12/iphone-12-purpe.jpeg",
@@ -141,7 +171,9 @@
     "model": "12",
     "memory": "256 ГБ",
     "color": "Фиолетовый",
-    "price": "79 990 ₽"
+    "currency": "₽",
+    "category": "12",
+    "price": 79990
   },
   {
     "image": "./img/iphone_12/iphone-12-pro-blue.jpg",
@@ -150,7 +182,9 @@
     "model": "12 Pro",
     "memory": "512 ГБ",
     "color": "Голубой",
-    "price": "119 990 ₽"
+    "currency": "₽",
+    "category": "12 Pro",
+    "price": 119990
   },
   {
     "image": "./img/iphone_12/iphone-12-pro-gold.jpg",
@@ -159,7 +193,9 @@
     "model": "12 Pro",
     "memory": "512 ГБ",
     "color": "Золотой",
-    "price": "119 990 ₽"
+    "currency": "₽",
+    "category": "12 Pro",
+    "price": 119990
   },
   {
     "image": "./img/iphone_12/iphone-12-pro-silver.jpeg",
@@ -168,7 +204,9 @@
     "model": "12 Pro",
     "memory": "512 ГБ",
     "color": "Серебристый",
-    "price": "119 990 ₽"
+    "currency": "₽",
+    "category": "12 Pro",
+    "price": 119990
   },
   {
     "image": "./img/iphone_11/iphone-11-balck.jpg",
@@ -177,7 +215,9 @@
     "model": "11",
     "memory": "128 ГБ",
     "color": "Черный",
-    "price": "57 990 ₽"
+    "currency": "₽",
+    "category": "11",
+    "price": 57990
   },
   {
     "image": "./img/iphone_11/iphone-11-green.jpeg",
@@ -186,7 +226,9 @@
     "model": "11",
     "memory": "128 ГБ",
     "color": "Зеленый",
-    "price": "57 990 ₽"
+    "currency": "₽",
+    "category": "11",
+    "price": 57990
   },
   {
     "image": "./img/iphone_11/iphone-11-purpe.jpeg",
@@ -195,7 +237,9 @@
     "model": "11",
     "memory": "128 ГБ",
     "color": "Фиолетовый",
-    "price": "57 990 ₽"
+    "currency": "₽",
+    "category": "11",
+    "price": 57990
   },
   {
     "image": "./img/iphone_11/iphone-11-red.jpeg",
@@ -204,7 +248,9 @@
     "model": "11",
     "memory": "128 ГБ",
     "color": "Красный",
-    "price": "57 990 ₽"
+    "currency": "₽",
+    "category": "11",
+    "price": 57990
   },
   {
     "image": "./img/iphone_11/iphone-11-yellow.jpeg",
@@ -213,7 +259,9 @@
     "model": "11",
     "memory": "128 ГБ",
     "color": "Желтый",
-    "price": "57 990 ₽"
+    "currency": "₽",
+    "category": "11",
+    "price": 57990
   },
   {
     "image": "./img/iphone_xr/xr-yellow.png",
@@ -222,7 +270,9 @@
     "model": "XR",
     "memory": "64 ГБ",
     "color": "Желтый",
-    "price": "39 990 ₽"
+    "currency": "₽",
+    "category": "xr",
+    "price": 39990
   },
   {
     "image": "./img/iphone_xr/xr-white.png",
@@ -231,7 +281,9 @@
     "model": "XR",
     "memory": "64 ГБ",
     "color": "Белый",
-    "price": "39 990 ₽"
+    "currency": "₽",
+    "category": "xr",
+    "price": 39990
   },
   {
     "image": "./img/iphone_xr/xr-red.png",
@@ -240,7 +292,9 @@
     "model": "XR",
     "memory": "64 ГБ",
     "color": "Красный",
-    "price": "39 990 ₽"
+    "currency": "₽",
+    "category": "xr",
+    "price": 39990
   },
   {
     "image": "./img/iphone_xr/xr-coral.png",
@@ -249,7 +303,9 @@
     "model": "XR",
     "memory": "64 ГБ",
     "color": "Кораловый",
-    "price": "39 990 ₽"
+    "currency": "₽",
+    "category": "xr",
+    "price": 39990
   },
   {
     "image": "./img/iphone_xr/xr-blue.png",
@@ -258,7 +314,9 @@
     "model": "XR",
     "memory": "64 ГБ",
     "color": "Голубой",
-    "price": "39 990 ₽"
+    "currency": "₽",
+    "category": "xr",
+    "price": 39990
   },
   {
     "image": "./img/iphone_xr/xr-black.png",
@@ -267,6 +325,8 @@
     "model": "XR",
     "memory": "64 ГБ",
     "color": "Черный",
-    "price": "39 990 ₽"
+    "currency": "₽",
+    "category": "xr",
+    "price": 39990
   }
 ]

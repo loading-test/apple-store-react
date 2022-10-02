@@ -10,7 +10,7 @@ import './CardDevice.scss';
 const CardDevice = ({ item }) => {
   return (
     <Grid key={item._id} className="gridItem">
-      <Card sx={{ maxWidth: 400 }} className="cardBlock">
+      <Card sx={{ maxWidth: 400, pt: 1 }} className="cardBlock">
         <CardActionArea className="cardAction">
           <CardMedia
             component="img"
@@ -33,12 +33,12 @@ const CardDevice = ({ item }) => {
               </Typography>
             </div>
             <Typography variant="h6" color="text.info" className="price">
-              {item.price}
+              {item.price.toLocaleString('ru-RU')} {item.currency}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions className="cartActions">
-          <Button size="small" color="primary">
+          <Button size="small" color="inherit">
             <AddShoppingCartIcon />В корзину
           </Button>
         </CardActions>

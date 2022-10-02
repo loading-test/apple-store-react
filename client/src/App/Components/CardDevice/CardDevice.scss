@@ -24,11 +24,12 @@
     }
 
     .gridItem {
-        margin: 10px;
+        margin: 20px;
+        margin-top: 2vh;
 
         .cardBlock {
             display: grid;
-            justify-content: center;
+            // justify-content: center;
             align-items: center;
             justify-items: center;
             align-content: center;
@@ -72,8 +73,10 @@
                     margin-right: 5px;
                 }
 
+                justify-content: center;
+                background: #1976d2;
                 width: 100%;
-                justify-content: flex-end;
+                // justify-content: flex-end;
                 align-items: center
             }
         }

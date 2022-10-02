@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Grid } from '@mui/material';
 import { useEffect } from 'react';
-import { fetchDevice, setItems } from '../../Redux/slice/device';
+import { fetchDevice } from '../../Redux/slice/device';
 import Search from '../../Components/Search';
-import { useSortPrice } from '../../Components/hooks/useSortPrice';
 import CardDevice from '../../Components/CardDevice';
 import Sort from '../../Components/Sort';
 
@@ -20,23 +19,11 @@ const HomePage = () => {
 
   const device = devices.items;
 
-  const sortBy = () => {
-    const deviceCopy = [...device];
-    deviceCopy.sort((a, b) => {
-      if (sorted.reversed) {
-        return a.id - b.id;
-      }
-      return b.id - a.id;
-    });
-    setItems(deviceCopy);
-    setSorted({ sorted: 'id', reversed: !sorted.reversed });
-  };
-
   return (
     <div className="cardDevice-Main">
       <div className="filterBlock">
         <Search value={value} setValue={setValue} />
-        <Sort sortBy={sortBy} />
+        <Sort sorted={sorted} setSorted={setSorted} />
       </div>
       <Grid container spacing={1} className="gridContainer">
         {device &&

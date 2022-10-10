@@ -7,6 +7,7 @@ import NotFound from './Pages/NotFound';
 import Registration from './Pages/Registration';
 import Login from './Pages/Login';
 import HomePage from './Pages/Home';
+import FullDevice from './Pages/FullDevice';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Container maxWidth="xl">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/devices/:id" element={<FullDevice />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/login" element={<Login />} />

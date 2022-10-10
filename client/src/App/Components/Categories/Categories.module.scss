@@ -8,6 +8,10 @@
       list-style-type: none;
       margin-right: 1.5vw;
       cursor: pointer;
+
+      .active {
+        border-bottom: 1px white solid;
+      }
     }
   }
 }

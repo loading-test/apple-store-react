@@ -1,7 +1,6 @@
 [
   {
     "image": "./img/iphone_13/iphone-13-black.jpg",
-    "_id": "f9d7fcac9f6f4ab78757904c3fa5e252",
     "name": "Apple Iphone",
     "model": "13",
     "memory": "256 ГБ",
@@ -12,7 +11,7 @@
   },
   {
     "image": "./img/iphone_13/iphone-13-blue.jpg",
-    "_id": "14cb621e43b74cb6bb09a173307b48e7",
+
     "name": "Apple Iphone",
     "model": "13",
     "memory": "256 ГБ",
@@ -23,7 +22,7 @@
   },
   {
     "image": "./img/iphone_13/iphone-13-red.jpg",
-    "_id": "5f2036f49ab941a0b91700402794fc11",
+
     "name": "Apple Iphone",
     "model": "13",
     "memory": "256 ГБ",
@@ -34,7 +33,7 @@
   },
   {
     "image": "./img/iphone_13/iphone-13-mini-black.jpg",
-    "_id": "2271272265bd4d7bb6e81ebd9de0c5b2",
+
     "name": "Apple Iphone",
     "model": "13 Mini",
     "memory": "128 ГБ",
@@ -45,7 +44,7 @@
   },
   {
     "image": "./img/iphone_13/iphone-13-mini-pink.jpg",
-    "_id": "91fede5bcac6470d9d6ec6a1a6865e62",
+
     "name": "Apple Iphone",
     "model": "13 Mini",
     "memory": "128 ГБ",
@@ -56,7 +55,7 @@
   },
   {
     "image": "./img/iphone_13/iphone-13-mini-white.jpg",
-    "_id": "025a982f9fa1401ba6c2153fff5de16c",
+
     "name": "Apple Iphone",
     "model": "13 Mini",
     "memory": "128 ГБ",
@@ -67,7 +66,7 @@
   },
   {
     "image": "./img/iphone_13/iphone-13-pro-blue.jpg",
-    "_id": "50d0202dd1f24fdc833994710630bb8d",
+
     "name": "Apple Iphone",
     "model": "13 Pro",
     "memory": "512 ГБ",
@@ -78,7 +77,7 @@
   },
   {
     "image": "./img/iphone_13/iphone-13-pro-gold.jpg",
-    "_id": "8dc04884eae34233b6590c2a09e3a044",
+
     "name": "Apple Iphone",
     "model": "13 Pro",
     "memory": "512 ГБ",
@@ -89,7 +88,7 @@
   },
   {
     "image": "./img/iphone_13/iphone-13-pro-graphite.jpg",
-    "_id": "5e45a527336448afafd0adc7b039ac60",
+
     "name": "Apple Iphone",
     "model": "13 Pro",
     "memory": "512 ГБ",
@@ -100,7 +99,7 @@
   },
   {
     "image": "./img/iphone_13/iphone-13-promax-gold.jpg",
-    "_id": "b3ba4551755740f8b728151a5b68fe25",
+
     "name": "Apple Iphone",
     "model": "13 ProMax",
     "memory": "512 ГБ",
@@ -111,7 +110,7 @@
   },
   {
     "image": "./img/iphone_13/iphone-13-promax-blue.jpg",
-    "_id": "5e322000d5dc4384960cb620e1caaeb4",
+
     "name": "Apple Iphone",
     "model": "13 ProMax",
     "memory": "512 ГБ",
@@ -122,7 +121,7 @@
   },
   {
     "image": "./img/iphone_12/iphone-12-blue.jpg",
-    "_id": "82f4e711b74d442ca7bfcb2f93167711",
+
     "name": "Apple Iphone",
     "model": "12",
     "memory": "256 ГБ",
@@ -133,7 +132,7 @@
   },
   {
     "image": "./img/iphone_12/iphone-12-black.jpg",
-    "_id": "a6917e7ed6fc465b9930bb55f9a13a8f",
+
     "name": "Apple Iphone",
     "model": "12",
     "memory": "256 ГБ",
@@ -144,7 +143,7 @@
   },
   {
     "image": "./img/iphone_12/iphone-12-red.jpeg",
-    "_id": "84a4881e111946aea6864e09bd06efd1",
+
     "name": "Apple Iphone",
     "model": "12",
     "memory": "256 ГБ",
@@ -155,7 +154,7 @@
   },
   {
     "image": "./img/iphone_12/iphone-12-white.jpeg",
-    "_id": "18cde33a96e9460da2e351b28fb5953f",
+
     "name": "Apple Iphone",
     "model": "12",
     "memory": "256 ГБ",
@@ -166,7 +165,7 @@
   },
   {
     "image": "./img/iphone_12/iphone-12-purpe.jpeg",
-    "_id": "84e0759e448b46aea32ed35991e7cccf",
+
     "name": "Apple Iphone",
     "model": "12",
     "memory": "256 ГБ",
@@ -177,7 +176,7 @@
   },
   {
     "image": "./img/iphone_12/iphone-12-pro-blue.jpg",
-    "_id": "0a79a0ffac104e3ab22486635aa4e976",
+
     "name": "Apple Iphone",
     "model": "12 Pro",
     "memory": "512 ГБ",
@@ -188,7 +187,7 @@
   },
   {
     "image": "./img/iphone_12/iphone-12-pro-gold.jpg",
-    "_id": "9efd4766846946c59bc10da82cc20dca",
+
     "name": "Apple Iphone",
     "model": "12 Pro",
     "memory": "512 ГБ",
@@ -199,7 +198,7 @@
   },
   {
     "image": "./img/iphone_12/iphone-12-pro-silver.jpeg",
-    "_id": "984d63adac304037a4b5031e9b3719cb",
+
     "name": "Apple Iphone",
     "model": "12 Pro",
     "memory": "512 ГБ",
@@ -210,7 +209,7 @@
   },
   {
     "image": "./img/iphone_11/iphone-11-balck.jpg",
-    "_id": "8e8492e1c160400aabf06a3fd452dae9",
+
     "name": "Apple Iphone",
     "model": "11",
     "memory": "128 ГБ",
@@ -221,7 +220,7 @@
   },
   {
     "image": "./img/iphone_11/iphone-11-green.jpeg",
-    "_id": "29a6e37d36054ce9bd7adf4eb64c6c4f",
+
     "name": "Apple Iphone",
     "model": "11",
     "memory": "128 ГБ",
@@ -232,7 +231,7 @@
   },
   {
     "image": "./img/iphone_11/iphone-11-purpe.jpeg",
-    "_id": "8ac21b2eeb474e889433ee90b510adf0",
+
     "name": "Apple Iphone",
     "model": "11",
     "memory": "128 ГБ",
@@ -243,7 +242,7 @@
   },
   {
     "image": "./img/iphone_11/iphone-11-red.jpeg",
-    "_id": "4c86b658e6d2410190ea51039b4f3409",
+
     "name": "Apple Iphone",
     "model": "11",
     "memory": "128 ГБ",
@@ -254,7 +253,7 @@
   },
   {
     "image": "./img/iphone_11/iphone-11-yellow.jpeg",
-    "_id": "bacb4a9366a443a2a52ab37bc3a398be",
+
     "name": "Apple Iphone",
     "model": "11",
     "memory": "128 ГБ",
@@ -265,7 +264,7 @@
   },
   {
     "image": "./img/iphone_xr/xr-yellow.png",
-    "_id": "8b6d2d74ce9e414cbaba3e9987e0ff78",
+
     "name": "Apple Iphone",
     "model": "XR",
     "memory": "64 ГБ",
@@ -276,7 +275,7 @@
   },
   {
     "image": "./img/iphone_xr/xr-white.png",
-    "_id": "22c39f2664b146eeaaaac5cedabdcf93",
+
     "name": "Apple Iphone",
     "model": "XR",
     "memory": "64 ГБ",
@@ -287,7 +286,7 @@
   },
   {
     "image": "./img/iphone_xr/xr-red.png",
-    "_id": "c7b2b3f14bfd4e39abbcbfd1b50b1922",
+
     "name": "Apple Iphone",
     "model": "XR",
     "memory": "64 ГБ",
@@ -298,7 +297,7 @@
   },
   {
     "image": "./img/iphone_xr/xr-coral.png",
-    "_id": "90ade32675e840a1ac069a6104100b0c",
+
     "name": "Apple Iphone",
     "model": "XR",
     "memory": "64 ГБ",
@@ -309,7 +308,7 @@
   },
   {
     "image": "./img/iphone_xr/xr-blue.png",
-    "_id": "1b734dbc13aa4078af1984ab9e778783",
+
     "name": "Apple Iphone",
     "model": "XR",
     "memory": "64 ГБ",
@@ -320,7 +319,7 @@
   },
   {
     "image": "./img/iphone_xr/xr-black.png",
-    "_id": "eea3cd3d4d7e4d20b2e9112fab9f282a",
+
     "name": "Apple Iphone",
     "model": "XR",
     "memory": "64 ГБ",

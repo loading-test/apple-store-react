@@ -40,4 +40,4 @@ const deviceSlice = createSlice({
 
 export const { setItems } = deviceSlice.reducer;
 
-export const deviceReducer = deviceSlice.reducer;
+export default deviceSlice.reducer;

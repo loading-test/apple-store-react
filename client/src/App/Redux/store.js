@@ -1,10 +1,11 @@
 import {configureStore} from '@reduxjs/toolkit'
-import { deviceReducer } from './slice/device'
-import { filterReducer } from './slice/filter';
+import devices from './devices/slice'
+import filter from './filter/slice';
+
 
 export const store = configureStore({
   reducer: {
-    devices: deviceReducer,
-    filter: filterReducer
+    devices,
+    filter
   }
 })

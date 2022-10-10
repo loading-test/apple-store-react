@@ -36,6 +36,10 @@
             width: 200px;
             height: auto;
 
+            a {
+              text-decoration: none;
+            }
+
             .cardAction {
                 display: flex !important;
                 flex-direction: column;

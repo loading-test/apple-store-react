@@ -1,21 +1,15 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Grid } from '@mui/material';
-import { useEffect } from 'react';
-import { fetchDevice } from '../../Redux/slice/device';
 import Search from '../../Components/Search';
 import CardDevice from '../../Components/CardDevice';
 import Sort from '../../Components/Sort';
+import { deviceData } from '../../Redux/devices/selectors';
 
 const HomePage = () => {
-  const dispatch = useDispatch();
-  const { devices } = useSelector((state) => state.devices);
+  const { devices } = useSelector(deviceData);
   const [value, setValue] = useState('');
   const [sorted, setSorted] = useState({ sorted: 'id', reversed: false });
-
-  useEffect(() => {
-    dispatch(fetchDevice());
-  }, []);
 
   const device = devices.items;
 

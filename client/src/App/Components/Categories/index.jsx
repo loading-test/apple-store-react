@@ -1,14 +1,7 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { setCategoryId } from '../../Redux/slice/filter';
 import styles from './Categories.module.scss';
 
-const Categories = () => {
-  const dispatch = useDispatch();
-
-  const onChangeCategory = (id) => {
-    dispatch(setCategoryId(id));
-  };
+const Categories = ({ value, onChangeCategory }) => {
   const categories = [
     'Все',
     'Iphone XR',
@@ -27,7 +20,7 @@ const Categories = () => {
           <li
             key={i}
             onClick={() => onChangeCategory(categoryName)}
-            className={setCategoryId === i ? 'active' : ''}>
+            className={value === i ? 'active' : ''}>
             {categoryName}
           </li>
         ))}

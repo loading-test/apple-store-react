@@ -1,35 +1,50 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Grid } from '@mui/material';
 import Search from '../../Components/Search';
 import CardDevice from '../../Components/CardDevice';
 import Sort from '../../Components/Sort';
 import { deviceData } from '../../Redux/devices/selectors';
+import { selectFilter } from '../../Redux/filter/selectors';
+import { setSearchValue } from '../../Redux/filter/slice';
+import { useSortDevice } from '../../hooks/useSortDevice';
+import Preloader from '../../Components/common/Preloader';
+import NotFound from '../NotFound';
 
 const HomePage = () => {
-  const { devices } = useSelector(deviceData);
-  const [value, setValue] = useState('');
-  const [sorted, setSorted] = useState({ sorted: 'id', reversed: false });
-
-  const device = devices.items;
+  const { items, status } = useSelector(deviceData);
+  const { searchValue, sort } = useSelector(selectFilter);
+  const { sortedDevice, sortBy, setSortBy } = useSortDevice(items);
 
   return (
     <div className="cardDevice-Main">
       <div className="filterBlock">
-        <Search value={value} setValue={setValue} />
-        <Sort sorted={sorted} setSorted={setSorted} />
+        <Search value={searchValue} setValue={setSearchValue} />
+        <Sort sort={sort} setSortBy={setSortBy} sortBy={sortBy} />
       </div>
-      <Grid container spacing={1} className="gridContainer">
-        {device &&
-          device
-            .filter((obj) => {
-              const search = (obj.name + ' ' + obj.model).toLowerCase();
-              return search.includes(value.toLowerCase());
-            })
-            .map((item) => {
-              return <CardDevice key={item._id} item={item} />;
-            })}
-      </Grid>
+      {status === 'error' ? (
+        <div>
+          <NotFound />
+        </div>
+      ) : (
+        <div>
+          {status === 'loading' ? (
+            <Preloader />
+          ) : (
+            <Grid container spacing={1} className="gridContainer">
+              {sortedDevice &&
+                sortedDevice
+                  .filter((obj) => {
+                    const search = (obj.name + ' ' + obj.model).toLowerCase();
+                    return search.includes(searchValue.toLowerCase());
+                  })
+                  .map((item) => {
+                    return <CardDevice key={item._id} item={item} />;
+                  })}
+            </Grid>
+          )}
+        </div>
+      )}
     </div>
   );
 };

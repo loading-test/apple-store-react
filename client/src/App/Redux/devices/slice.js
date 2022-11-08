@@ -1,15 +1,18 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { identity, pickBy } from 'lodash';
 import axios from '../../axios';
 
 const initialState = {
-  devices: {
     items: [],
     status: 'loading',
-  },
 };
 
-export const fetchDevice = createAsyncThunk('/devices/fetchDevice', async () => {
-  const { data } = await axios.get('/devices');
+export const fetchDevice = createAsyncThunk('/devices/fetchDevice', async (params) => {
+  const { category, orderBy } = params;
+
+  const { data } = await axios.get(`/devices`, {
+    params: pickBy({ category, orderBy }, identity),
+  });
 
   return data;
 });
@@ -24,16 +27,16 @@ const deviceSlice = createSlice({
   },
   extraReducers: {
     [fetchDevice.pending]: (state) => {
-      state.devices.items = [];
-      state.devices.status = 'loading';
+      state.items = [];
+      state.status = 'loading';
     },
     [fetchDevice.fulfilled]: (state, action) => {
-      state.devices.items = action.payload;
-      state.devices.status = 'downloaded';
+      state.items = action.payload;
+      state.status = 'success';
     },
     [fetchDevice.rejected]: (state) => {
-      state.devices.items = [];
-      state.devices.status = 'error';
+      state.items = [];
+      state.status = 'error';
     },
   },
 });

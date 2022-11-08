@@ -16,7 +16,7 @@ function App() {
       <Container maxWidth="xl">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/devices/:id" element={<FullDevice />} />
+          <Route path="/:id" element={<FullDevice />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/login" element={<Login />} />

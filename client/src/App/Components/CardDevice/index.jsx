@@ -10,9 +10,9 @@ import { Link } from 'react-router-dom';
 
 const CardDevice = ({ item }) => {
   return (
-    <Grid key={item._id} className="gridItem">
+    <Grid className="gridItem">
       <Card sx={{ maxWidth: 400, pt: 1 }} className="cardBlock">
-        <Link to={`/devices/${item._id}`}>
+        <Link to={`/${item._id}`}>
           <CardActionArea className="cardAction">
             <CardMedia
               component="img"

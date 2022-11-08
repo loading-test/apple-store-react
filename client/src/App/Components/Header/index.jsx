@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -17,12 +17,12 @@ const Header = () => {
 
   const { categoryId } = useSelector(selectFilter);
 
-  const onChangeFilter = (id) => {
+  const onChangeFilter = useCallback((id) => {
     dispatch(setCategoryId(id));
-  };
+  }, []);
 
   const getDevices = async () => {
-    const category = categoryId ? `category=${categoryId}` : '';
+    const category = (await categoryId) ? `${categoryId}` : '';
 
     dispatch(fetchDevice({ category }));
   };
@@ -39,12 +39,7 @@ const Header = () => {
             <Link to="/">
               <img src="apple.svg" alt="apple.svg" />
             </Link>
-
             <div className="header__appbar__toolbar__link">
-              {/* <Link to="/iphonexr">Iphone XR</Link>
-              <Link to="/iphone11">Iphone 11</Link>
-              <Link to="/iphone12">Iphone 12</Link>
-              <Link to="/iphone13">Iphone 13</Link> */}
               <Categories value={categoryId} onChangeCategory={onChangeFilter} />
             </div>
             <div className="header__appbar__toolbar__layout">

@@ -24,7 +24,11 @@ const DeviceSchema = new Schema({
       type: String,
       required: true
     },
-    category: String,
+    screen: String,
+    processorType: String,
+    screenTechnology: String,
+    movieResolution: String,
+    category: Number,
     price: {
         type: Number,
         required: true

@@ -16,6 +16,15 @@ const HomePage = () => {
   const { searchValue, sort } = useSelector(selectFilter);
   const { sortedDevice, sortBy, setSortBy } = useSortDevice(items);
 
+  const filterDevice = sortedDevice
+    .filter((obj) => {
+      const search = (obj.name + ' ' + obj.model).toLowerCase();
+      return search.includes(searchValue.toLowerCase());
+    })
+    .map((item) => {
+      return <CardDevice key={item._id} item={item} />;
+    });
+
   return (
     <div className="cardDevice-Main">
       <div className="filterBlock">
@@ -23,24 +32,14 @@ const HomePage = () => {
         <Sort sort={sort} setSortBy={setSortBy} sortBy={sortBy} />
       </div>
       {status === 'error' ? (
-        <div>
-          <NotFound />
-        </div>
+        <NotFound />
       ) : (
         <div>
           {status === 'loading' ? (
             <Preloader />
           ) : (
             <Grid container spacing={1} className="gridContainer">
-              {sortedDevice &&
-                sortedDevice
-                  .filter((obj) => {
-                    const search = (obj.name + ' ' + obj.model).toLowerCase();
-                    return search.includes(searchValue.toLowerCase());
-                  })
-                  .map((item) => {
-                    return <CardDevice key={item._id} item={item} />;
-                  })}
+              {filterDevice}
             </Grid>
           )}
         </div>

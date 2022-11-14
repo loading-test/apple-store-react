@@ -5,18 +5,31 @@ const router = express.Router({ mergeParams: true });
 
 router.get('/', async (req, res) => {
   try {
-    let filter = {}
-    // let sortBy = {}
-    if(req.query.category) {
-      filter = {category: req.query.category}
+    let { page, size } = req.query;
+    if (!page) {
+      page = 1;
     }
-    // if(req.query.price) {
-    //   sortBy = {price: req.query.price}
-    // }
-    const filterDeviceList = await Device.find(filter).sort('-price').populate('category')
+    if (!size) {
+      size = 8;
+    }
+
+    const limit = parseInt(size);
+    const skip = (page - 1) * size;
+
+    let filter = {};
+
+    if (req.query.category) {
+      filter = { category: req.query.category };
+    }
+
+    const filterDeviceList = await Device.find(filter)
+      .sort('-price')
+      .limit(limit)
+      .skip(skip)
+      .populate('category');
     // const sortDeviceList = await Device.find(sortBy).populate('price')
-    
-    res.status(200).json(filterDeviceList)
+
+    res.status(200).send({page, size, filterDeviceList});
     // const device = await Device.find();
     // res.status(200).send(device);
   } catch (error) {
@@ -27,14 +40,14 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-    try {
-      const device = await Device.findById(req.params.id)
-      res.status(200).json(device)
-    } catch (err) {
-     res.status(500).json({
-      message: 'Не удалось получить данные об устройстве'
-     });
-    }
+  try {
+    const device = await Device.findById(req.params.id);
+    res.status(200).json(device);
+  } catch (err) {
+    res.status(500).json({
+      message: 'Не удалось получить данные об устройстве',
+    });
+  }
 });
 
 module.exports = router;

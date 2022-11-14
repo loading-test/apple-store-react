@@ -1,5 +1,6 @@
 const {Schema, model} = require('mongoose');
 
+
 const DeviceSchema = new Schema({
     image: {
         type: String

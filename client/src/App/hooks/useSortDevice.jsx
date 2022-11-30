@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 
 export const useSortDevice = (items) => {
   const [sortBy, setSortBy] = useState(false);

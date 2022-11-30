@@ -5,16 +5,16 @@ const router = express.Router({ mergeParams: true });
 
 router.get('/', async (req, res) => {
   try {
-    let { page, size } = req.query;
-    if (!page) {
-      page = 1;
-    }
-    if (!size) {
-      size = 8;
-    }
+    let pageOptions = {
+      page: req.query.page || 0,
+      size: req.query.size || 10,
+    };
 
-    const limit = parseInt(size);
-    const skip = (page - 1) * size;
+    let totalPage = {};
+    const count = await Device.countDocuments(totalPage);
+    
+    const limit = parseInt(pageOptions.size);
+    const skip = (pageOptions.page - 1) * pageOptions.size;
 
     let filter = {};
 
@@ -27,11 +27,8 @@ router.get('/', async (req, res) => {
       .limit(limit)
       .skip(skip)
       .populate('category');
-    // const sortDeviceList = await Device.find(sortBy).populate('price')
 
-    res.status(200).send({page, size, filterDeviceList});
-    // const device = await Device.find();
-    // res.status(200).send(device);
+    res.status(200).json({devices: filterDeviceList, totalCount: count});
   } catch (error) {
     res.status(500).json({
       message: 'На сервере произошла ошибка. Повторите позже...',

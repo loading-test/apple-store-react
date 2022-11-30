@@ -3,18 +3,18 @@ import { identity, pickBy } from 'lodash';
 import axios from '../../axios';
 
 const initialState = {
-    items: [],
-    status: 'loading',
+  items: [],
+  status: 'loading',
 };
 
 export const fetchDevice = createAsyncThunk('/devices/fetchDevice', async (params) => {
-  const { category, orderBy } = params;
+  const { category, page, size, search } = params;
 
   const { data } = await axios.get(`/devices`, {
-    params: pickBy({ category, orderBy }, identity),
+    params: pickBy({ category, page, size, search }, identity),
   });
-
-  return data;
+  console.log(data);
+  return data.devices;
 });
 
 const deviceSlice = createSlice({

@@ -11,7 +11,7 @@ const Sort = memo(({ sort, setSortBy, sortBy }) => {
       ) : (
         <FilterListIcon onClick={() => setSortBy(!sortBy)} />
       )}
-      <span>{sort.name} </span>
+      <span>Сортировать по цене </span>
     </div>
   );
 });

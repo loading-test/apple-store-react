@@ -1,4 +1,5 @@
-import React, { useCallback, useEffect } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -6,30 +7,21 @@ import { Link } from 'react-router-dom';
 import { Container } from '@mui/system';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import './Header.scss';
-import Categories from '../Categories';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchDevice } from '../../Redux/devices/slice';
-import { setCategoryId } from '../../Redux/filter/slice';
-import { selectFilter } from '../../Redux/filter/selectors';
+import Badge from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+import { selectCart } from '../../Redux/cart/selectors';
 
 const Header = () => {
-  const dispatch = useDispatch();
+  const { itemsCart, totalPrice } = useSelector(selectCart);
 
-  const { categoryId } = useSelector(selectFilter);
-
-  const onChangeFilter = useCallback((id) => {
-    dispatch(setCategoryId(id));
-  }, []);
-
-  const getDevices = async () => {
-    const category = (await categoryId) ? `${categoryId}` : '';
-
-    dispatch(fetchDevice({ category }));
-  };
-
-  useEffect(() => {
-    getDevices();
-  }, [categoryId]);
+  const StyledBadge = styled(Badge)(({ theme }) => ({
+    '& .MuiBadge-badge': {
+      right: 18,
+      top: 13,
+      // border: `1px solid ${theme.palette.background.paper}`,
+      padding: '0 4px',
+    },
+  }));
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -39,12 +31,11 @@ const Header = () => {
             <Link to="/">
               <img src="apple.svg" alt="apple.svg" />
             </Link>
-            <div className="header__appbar__toolbar__link">
-              <Categories value={categoryId} onChangeCategory={onChangeFilter} />
-            </div>
             <div className="header__appbar__toolbar__layout">
               <Link to="/cart">
-                <ShoppingCartIcon />
+                <StyledBadge badgeContent={itemsCart.length} color="primary">
+                  <ShoppingCartIcon />
+                </StyledBadge>
               </Link>
               <div className="header__appbar__toolbar__layout__login">
                 <Link to="/registration">Регистрация</Link>

@@ -16,7 +16,7 @@ export const fetchFilter = createAsyncThunk('/filter/fetchFilter', async (params
   })
   console.log('filter: ', data);
   return data
-}) 
+});
 
 export const filterSlice = createSlice({
   name: 'filter',

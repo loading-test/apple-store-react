@@ -6,12 +6,7 @@ import CardDevice from '../../Components/CardDevice';
 import Sort from '../../Components/Sort';
 import { deviceData } from '../../Redux/devices/selectors';
 import { selectFilter } from '../../Redux/filter/selectors';
-import {
-  setCategoryId,
-  setCurrentPage,
-  setSearchValue,
-  setSizePage,
-} from '../../Redux/filter/slice';
+import { setCategoryId, setCurrentPage, setSearchValue } from '../../Redux/filter/slice';
 import { useSortDevice } from '../../hooks/useSortDevice';
 import Preloader from '../../Components/common/Preloader';
 import NotFound from '../NotFound';

@@ -4,9 +4,11 @@ const CartModel = require('../models/Cart');
 
 const router = express.Router({ mergeParams: true });
 
-router.post('/', checkAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const doc = new CartModel({
+      _id: req.body._id,
+      image: req.body.image,
       name: req.body.name,
       model: req.body.model,
       memory: req.body.memory,
@@ -24,7 +26,7 @@ router.post('/', checkAuth, async (req, res) => {
   }
 });
 
-router.get('/', checkAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const carts = await CartModel.find();
 

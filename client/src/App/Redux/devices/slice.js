@@ -13,7 +13,7 @@ export const fetchDevice = createAsyncThunk('/devices/fetchDevice', async (param
   const { data } = await axios.get(`/devices`, {
     params: pickBy({ category, page, size, search }, identity),
   });
-  console.log(data);
+
   return data.devices;
 });
 

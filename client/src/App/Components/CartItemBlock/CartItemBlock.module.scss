@@ -1,0 +1,24 @@
+.cartItemBlock {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: 5vh;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 15px;
+
+  img {
+    width: 80px;
+  }
+
+  hr {
+    width: 65%;
+    border-bottom-style: dashed;
+    position: relative;
+    top: 5px;
+  }
+
+  p {
+    margin-left: 8px;
+  }
+}

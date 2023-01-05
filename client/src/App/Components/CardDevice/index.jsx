@@ -18,7 +18,7 @@ const CardDevice = ({ _id, image, name, model, memory, color, price, currency })
 
   const addedCount = cartItem ? cartItem.count : 0;
 
-  const onClickCartAdd = () => {
+  const onClickCartAdd = async () => {
     const item = {
       _id,
       image,

@@ -5,11 +5,18 @@ import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import styles from './Cart.module.scss';
 import { selectCart } from '../../Redux/cart/selectors';
 import { Container } from '@mui/material';
-// import CartItemBlock from '../../Components/CartItemBlock';
+import { useEffect } from 'react';
+import { fetchCart } from '../../Redux/cart/slice';
+import CartItemBlock from '../../Components/CartItemBlock';
 
 const Cart = () => {
-  // const dispatch = useDispatch();
-  // const { itemsCart, totalPrice } = useSelector(selectCart);
+  const dispatch = useDispatch();
+  const { itemsCart, totalPrice } = useSelector(selectCart);
+  console.log(itemsCart);
+
+  useEffect(() => {
+    dispatch(fetchCart());
+  }, []);
 
   return (
     <Container maxWidth="xl">
@@ -24,19 +31,19 @@ const Cart = () => {
             <span>Очистить корзину</span>
           </div>
         </div>
-        <div className={styles.contentItems}>
-          {/* {itemsCart.map((item) => (
-            <CartItemBlock key={item._id} {...item} />
-          ))} */}
-        </div>
-        <div className={styles.cartBottom}>
-          <span className={styles.totalProduct}>
-            Всего товаров: <b>{}</b>
-          </span>
-          <span className={styles.totalPrice}>
-            Сумма заказа: <b>{}</b>
-          </span>
-        </div>
+      </div>
+      <div className={styles.cartItem}>
+        {itemsCart.map((item) => (
+          <CartItemBlock key={item._id} {...item} />
+        ))}
+      </div>
+      <div className={styles.cartBottom}>
+        <span className={styles.totalProduct}>
+          Всего товаров: <b>{}</b>
+        </span>
+        <span className={styles.totalPrice}>
+          Сумма заказа: <b>{}</b>
+        </span>
       </div>
     </Container>
   );

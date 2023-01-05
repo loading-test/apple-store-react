@@ -5,6 +5,9 @@ const CartSchema = new Schema({
     name: {
         type: String
     },
+    image: {
+        type: String
+    },
     model: {
         type: String,
         required: true

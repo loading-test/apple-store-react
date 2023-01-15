@@ -12,7 +12,6 @@ import CartItemBlock from '../../Components/CartItemBlock';
 const Cart = () => {
   const dispatch = useDispatch();
   const { itemsCart, totalPrice } = useSelector(selectCart);
-  console.log(itemsCart);
 
   useEffect(() => {
     dispatch(fetchCart());
@@ -39,10 +38,10 @@ const Cart = () => {
       </div>
       <div className={styles.cartBottom}>
         <span className={styles.totalProduct}>
-          Всего товаров: <b>{}</b>
+          Всего товаров: <b>{itemsCart.length}</b>
         </span>
         <span className={styles.totalPrice}>
-          Сумма заказа: <b>{}</b>
+          Сумма заказа: <b>{totalPrice}</b>
         </span>
       </div>
     </Container>

@@ -28,6 +28,7 @@ const CardDevice = ({ _id, image, name, model, memory, color, price, currency })
       color,
       price,
       currency,
+      count: 0,
     };
     dispatch(addItem(item));
   };

@@ -6,19 +6,42 @@
   align-items: center;
   justify-content: space-evenly;
   margin-bottom: 15px;
-
+  
   img {
     width: 80px;
   }
 
-  hr {
-    width: 65%;
-    border-bottom-style: dashed;
-    position: relative;
-    top: 5px;
+  .cartInfo {
+    display: flex;
+    align-items: center;
+    width: 25em;
+  }
+
+  // hr {
+  //   width: 35%;
+  //   border-bottom-style: dashed;
+  //   position: relative;
+  //   top: 5px;
+  // }
+
+  .numberBlock {
+    img {
+      width: 20px;
+      cursor: pointer;
+    }
   }
 
   p {
     margin-left: 8px;
+  }
+
+  .blockCloseIcon {
+    display: flex ;
+
+    .closeIcon {
+      width: 18px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
   }
 }

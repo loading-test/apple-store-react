@@ -1,40 +1,49 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from '../../axios'
+import axios from '../../axios';
+import { calcTotalPrice } from '../../utils/totalPrice';
 
 const initialState = {
   totalPrice: 0,
   itemsCart: [],
-  status: 'loading'
+  status: 'loading',
 };
 
 export const fetchCart = createAsyncThunk('cart/fetchCart', async () => {
-  const { data } = await axios.get('/cart')
-  console.log(data);
-  return data
-})
+  const { data } = await axios.get('/cart');
+
+  return data;
+});
+
+export const fetchRemoveItem = createAsyncThunk('cart/fetchRemoveItem', async (id) => {
+  const { data } = await axios.delete(`/cart/${id}`);
+
+  return data;
+});
 
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
     addItem(state, action) {
-      const findItem = state.itemsCart.find(obj => obj._id === action.payload._id)
-      const {data} = axios.post('/cart', action.payload)
-      
-      if(findItem) {
-        findItem.count++
-      }else {
-        state.itemsCart.push({...action.payload, count: 1})
+      const findItem = state.itemsCart.find((obj) => obj._id === action.payload._id);
+      const { data } = axios.post('/cart', action.payload);
+
+      if (findItem) {
+        findItem.count++;
+      } else {
+        state.itemsCart.push({ ...action.payload, count: 1 });
       }
 
-      return data
+      state.totalPrice = calcTotalPrice(state.itemsCart);
+
+      return data;
     },
-    removeItem(state, action) {
-      state.itemsCart = state.itemsCart.filter(obj => obj._id !== action.payload)
-    },
-    clearItems(state, action) {
-      state.itemsCart = []
-    }
+    // removeItem(state, action) {
+    //   state.itemsCart = state.itemsCart.filter((obj) => obj._id !== action.payload);
+    // },
+    // clearItems(state, action) {
+    //   state.itemsCart = [];
+    // },
   },
   extraReducers: {
     [fetchCart.pending]: (state) => {
@@ -49,7 +58,10 @@ export const cartSlice = createSlice({
       state.itemsCart = [];
       state.status = 'error';
     },
-  }
+    [fetchRemoveItem.pending]: (state, action) => {
+      state.itemsCart = state.itemsCart.filter((obj) => obj._id !== action.meta.arg);
+    },
+  },
 });
 
 export const { addItem, removeItem, clearItems } = cartSlice.actions;

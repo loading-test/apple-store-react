@@ -38,8 +38,10 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.delete('/:deviceId', checkAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
+    const carts = await CartModel.findByIdAndDelete(req.params.id)
+    res.status(200).json(carts)
   } catch (error) {
     res.status(500).json({
       message: 'Не удалось удалить корзину',

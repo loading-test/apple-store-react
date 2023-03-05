@@ -3,8 +3,6 @@ import React from 'react';
 import './CardDeviceInfo.scss';
 
 const CartDeviceIndo = ({ item }) => {
-  const deviceInfo = ['Дисплей', 'Процессор', 'Технология дисплея', 'Разрешение видео'];
-
   return (
     <Box className="cardInfo">
       {item && (

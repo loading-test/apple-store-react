@@ -9,8 +9,9 @@ const initialState = {
 };
 
 export const fetchCart = createAsyncThunk('cart/fetchCart', async () => {
-  const { data } = await axios.get('/cart');
-
+  
+  const { data } = await axios.get('/cart',);
+  
   return data;
 });
 
@@ -32,18 +33,28 @@ export const cartSlice = createSlice({
         findItem.count++;
       } else {
         state.itemsCart.push({ ...action.payload, count: 1 });
+        
       }
 
       state.totalPrice = calcTotalPrice(state.itemsCart);
-
+      
       return data;
+    },
+
+    minusItem(state, action) {
+      const findItem = state.itemsCart.find(obj => obj._id === action.payload)
+      if(findItem) {
+        findItem.count--
+      }
     },
     // removeItem(state, action) {
     //   state.itemsCart = state.itemsCart.filter((obj) => obj._id !== action.payload);
     // },
-    // clearItems(state, action) {
-    //   state.itemsCart = [];
-    // },
+    clearItems(state) {
+      axios.delete('/cart')
+      state.itemsCart = [];
+    },
+    
   },
   extraReducers: {
     [fetchCart.pending]: (state) => {
@@ -64,6 +75,6 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addItem, removeItem, clearItems } = cartSlice.actions;
+export const { addItem, minusItem, removeItem, clearItems } = cartSlice.actions;
 
 export default cartSlice.reducer;

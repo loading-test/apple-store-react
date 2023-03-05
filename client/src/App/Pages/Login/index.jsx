@@ -3,40 +3,44 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import { useDispatch, useSelector } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import { Navigate } from 'react-router-dom';
+import { fetchAuth, selectIsAuth } from '../../Redux/auth/slice';
 
 const theme = createTheme();
 
- const Login = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+const Login = () => {
+  const isAuth = useSelector(selectIsAuth);
+  const dispatch = useDispatch();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm({
+    mode: 'onChange',
+  });
+
+  const onSubmit = async (values) => {
+    const data = await dispatch(fetchAuth(values));
+
+    if (!data.payload) {
+      return alert('Не удалось авторизоваться');
+    }
+    if ('token' in data.payload) {
+      window.localStorage.setItem('token', data.payload.token);
+    }
   };
+
+  if (isAuth) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -55,7 +59,7 @@ const theme = createTheme();
           <Typography component="h1" variant="h5">
             Войти
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -64,6 +68,9 @@ const theme = createTheme();
               label="Email Address"
               name="email"
               autoComplete="email"
+              error={Boolean(errors.email?.message)}
+              helperText={errors.email?.message}
+              {...register('email', { required: 'Укажите почту' })}
               autoFocus
             />
             <TextField
@@ -75,20 +82,19 @@ const theme = createTheme();
               type="password"
               id="password"
               autoComplete="current-password"
+              error={Boolean(errors.password?.message)}
+              helperText={errors.password?.message}
+              {...register('password', { required: 'Укажите пароль' })}
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Запомнить"
-            />
+
             <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
               Войти
             </Button>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 4, mb: 4 }} />
       </Container>
     </ThemeProvider>
   );
-}
+};
 
-export default Login
+export default Login;

@@ -15,6 +15,7 @@ router.post('/', async (req, res) => {
       color: req.body.color,
       currency: req.body.currency,
       price: req.body.price,
+      count: req.body.count
     });
 
     const cartItem = await doc.save();
@@ -26,7 +27,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.get('/', async (req, res) => {
+router.get('/', checkAuth, async (req, res) => {
   try {
     const carts = await CartModel.find();
 
@@ -38,13 +39,24 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/', checkAuth, async (req, res) => {
+  try {
+    const carts = await CartModel.deleteMany()
+    res.status(200).json(carts)
+  } catch (error) {
+    res.status(500).json({
+      message: 'Не удалось очистить корзину',
+    });
+  }
+})
+
+router.delete('/:id', checkAuth, async (req, res) => {
   try {
     const carts = await CartModel.findByIdAndDelete(req.params.id)
     res.status(200).json(carts)
   } catch (error) {
     res.status(500).json({
-      message: 'Не удалось удалить корзину',
+      message: 'Не удалось удалить элемент в корзине',
     });
   }
 });

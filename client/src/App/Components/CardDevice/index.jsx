@@ -12,13 +12,13 @@ import { styled } from '@mui/material/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../../Redux/cart/slice';
 
-const CardDevice = ({ _id, image, name, model, memory, color, price, currency }) => {
+const CardDevice = ({ _id, image, name, model, memory, color, price, currency, count }) => {
   const dispatch = useDispatch();
   const cartItem = useSelector((state) => state.cart.itemsCart.find((obj) => obj._id === _id));
 
   const addedCount = cartItem ? cartItem.count : 0;
 
-  const onClickCartAdd = async () => {
+  const onClickCartAdd = () => {
     const item = {
       _id,
       image,

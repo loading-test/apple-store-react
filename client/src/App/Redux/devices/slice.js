@@ -7,11 +7,11 @@ const initialState = {
   status: 'loading',
 };
 
-export const fetchDevice = createAsyncThunk('/devices/fetchDevice', async (params) => {
-  const { category, page, size, search } = params;
+export const fetchDevice = createAsyncThunk('devices/fetchDevice', async (params) => {
+  const { category, page, size } = params;
 
   const { data } = await axios.get(`/devices`, {
-    params: pickBy({ category, page, size, search }, identity),
+    params: pickBy({ category, page, size }, identity),
   });
 
   return data.devices;

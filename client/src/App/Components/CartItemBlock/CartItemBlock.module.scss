@@ -25,9 +25,11 @@
   // }
 
   .numberBlock {
+    display: flex;
     img {
       width: 20px;
       cursor: pointer;
+      margin: 10px;
     }
   }
 

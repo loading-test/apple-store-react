@@ -47,7 +47,6 @@ export const filterSlice = createSlice({
         state.page = 1
         state.size = 0
         state.categoryId = ''
-        // state.sort = "ASC"
       }
     }
   },

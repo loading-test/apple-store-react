@@ -10,14 +10,15 @@ import HomePage from './Pages/Home';
 import FullDevice from './Pages/FullDevice';
 
 function App() {
+
   return (
     <>
       <Header />
       <Container maxWidth="xl">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/:id" element={<FullDevice />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/:id" element={<FullDevice />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />

@@ -1,21 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import styles from './Cart.module.scss';
 import { selectCart } from '../../Redux/cart/selectors';
 import { Container } from '@mui/material';
-import { useEffect } from 'react';
-import { fetchCart } from '../../Redux/cart/slice';
+import { clearItems, fetchCart } from '../../Redux/cart/slice';
 import CartItemBlock from '../../Components/CartItemBlock';
+import { calcTotalPrice } from '../../utils/totalPrice';
 
 const Cart = () => {
   const dispatch = useDispatch();
   const { itemsCart, totalPrice } = useSelector(selectCart);
 
+  const priceCart = itemsCart.map((item) => item.price + '');
+  console.log(priceCart);
+
   useEffect(() => {
     dispatch(fetchCart());
   }, []);
+
+  const onClickClear = () => {
+    dispatch(clearItems());
+  };
 
   return (
     <Container maxWidth="xl">
@@ -25,7 +32,7 @@ const Cart = () => {
             <ShoppingCartOutlinedIcon />
             Корзина
           </h2>
-          <div className={styles.cartClear}>
+          <div className={styles.cartClear} onClick={onClickClear}>
             <DeleteOutlinedIcon />
             <span>Очистить корзину</span>
           </div>
@@ -41,7 +48,7 @@ const Cart = () => {
           Всего товаров: <b>{itemsCart.length}</b>
         </span>
         <span className={styles.totalPrice}>
-          Сумма заказа: <b>{totalPrice}</b>
+          Сумма заказа: <b>{0}</b>
         </span>
       </div>
     </Container>

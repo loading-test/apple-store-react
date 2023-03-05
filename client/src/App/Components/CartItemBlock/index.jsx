@@ -1,14 +1,24 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchRemoveItem } from '../../Redux/cart/slice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem, fetchRemoveItem, minusItem } from '../../Redux/cart/slice';
 import styles from './CartItemBlock.module.scss';
 
 const CartItemBlock = ({ _id, image, name, model, memory, color, price, currency }) => {
   const dispatch = useDispatch();
 
+  const items = useSelector((state) => state.cart.itemsCart.find((obj) => obj._id === _id));
+
   const onClickRemove = () => {
     dispatch(fetchRemoveItem(_id));
   };
+
+  const onClickPlus = () => {
+    dispatch(addItem({ _id }));
+  };
+  const onClickMinus = () => {
+    dispatch(minusItem(_id));
+  };
+
   return (
     <div className={styles.cartItemBlock}>
       <div className={styles.cartInfo}>
@@ -21,8 +31,9 @@ const CartItemBlock = ({ _id, image, name, model, memory, color, price, currency
 
       {/* <hr /> */}
       <div className={styles.numberBlock}>
-        <img src="minus.svg" alt="minus" />
-        <img src="plus.svg" alt="minus" />
+        {items.count === 0 ? true : <img src="minus.svg" alt="minus" onClick={onClickMinus} />}
+        <h3>{items.count + 1}</h3>
+        <img src="plus.svg" alt="minus" onClick={onClickPlus} />
       </div>
       <p>
         {price} {currency}

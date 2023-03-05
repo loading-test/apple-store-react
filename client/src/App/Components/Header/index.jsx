@@ -1,5 +1,5 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -10,18 +10,32 @@ import './Header.scss';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import { selectCart } from '../../Redux/cart/selectors';
+import { fetchCart } from '../../Redux/cart/slice';
+import { Button } from '@mui/material';
+import { selectIsAuth, logout } from '../../Redux/auth/slice';
 
 const Header = () => {
-  const { itemsCart, totalPrice } = useSelector(selectCart);
+  const { itemsCart } = useSelector(selectCart);
+  const isAuth = useSelector(selectIsAuth);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCart());
+  }, []);
 
   const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
       right: 18,
       top: 13,
-      // border: `1px solid ${theme.palette.background.paper}`,
       padding: '0 4px',
     },
   }));
+
+  const onClickLogout = () => {
+    dispatch(logout());
+    window.localStorage.removeItem('token');
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -38,8 +52,18 @@ const Header = () => {
                 </StyledBadge>
               </Link>
               <div className="header__appbar__toolbar__layout__login">
-                <Link to="/registration">Регистрация</Link>
-                <Link to="/login">Войти</Link>
+                {isAuth ? (
+                  <>
+                    <Button onClick={onClickLogout} variant="contained" color="error">
+                      Выйти
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/registration">Регистрация</Link>
+                    <Link to="/login">Войти</Link>
+                  </>
+                )}
               </div>
             </div>
           </Toolbar>

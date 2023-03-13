@@ -7,7 +7,6 @@ import { selectCart } from '../../Redux/cart/selectors';
 import { Container } from '@mui/material';
 import { clearItems, fetchCart } from '../../Redux/cart/slice';
 import CartItemBlock from '../../Components/CartItemBlock';
-import { calcTotalPrice } from '../../utils/totalPrice';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -48,7 +47,7 @@ const Cart = () => {
           Всего товаров: <b>{itemsCart.length}</b>
         </span>
         <span className={styles.totalPrice}>
-          Сумма заказа: <b>{0}</b>
+          Сумма заказа: <b>{totalPrice}</b>
         </span>
       </div>
     </Container>

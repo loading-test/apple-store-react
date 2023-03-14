@@ -19,6 +19,7 @@ app.use('/api', routes);
 
 const PORT = config.get('port') ?? 8080;
 
+
 async function startApp() {
   try {
     mongoose.connection.once('open', () => {
